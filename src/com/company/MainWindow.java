@@ -24,8 +24,11 @@ public class MainWindow extends JFrame {
 
 
 
+    Image img1 = ImageIO.read(LoadPane.file);
 
-    Image img = ImageIO.read(LoadPane.file);
+    public Image img = img1.getScaledInstance(790,400,1);
+
+
 
     JButton buttonRestart = new JButton("Загрузить новый образец");
     JButton buttonSave = new JButton("Сохранить образец");
@@ -39,7 +42,7 @@ public class MainWindow extends JFrame {
     JPanel paneRight = new JPanel();
     JPanel paneResult = new JPanel();
 
-    BufferedImage ico = ImageIO.read(new File("C:\\Users\\Pyth\\Desktop\\Алгоритмы Биологи\\src\\com\\company\\Ico.png"));
+    BufferedImage ico = ImageIO.read(new File("C:\\Users\\Pyth\\Desktop\\Bio_Alg\\src\\com\\company\\Ico.png"));
     ImageIcon icon = new ImageIcon(ico);
 
 
@@ -66,6 +69,8 @@ public class MainWindow extends JFrame {
         //  добавлять в зависимости от серии
         JTable table1 = new JTable(array, columnsHeader);
         JScrollPane tbSc = new JScrollPane(table1);
+
+
 
         buttonExit.setFont(FontText);
         buttonSave.setFont(FontText);
@@ -119,10 +124,13 @@ public class MainWindow extends JFrame {
         globalPane.add(paneRight);
 
 
+
+
         JLabel l = new JLabel(new ImageIcon(img));
         l.setBounds(0, 0, 50, 50);
         l.setVisible(true);
 
+        paneIMG.setLayout(new FlowLayout(FlowLayout.CENTER));
         paneIMG.add(l);
 
 
